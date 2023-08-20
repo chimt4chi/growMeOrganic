@@ -24,7 +24,7 @@ export default function IndeterminateCheckbox() {
     },
   ];
 
-  const [expanded, setExpanded] = React.useState<number | false>(false);
+  const [expanded, setExpanded] = useState<number | false>(false);
 
   const handleExpandClick = (deptIndex: number) => () => {
     setExpanded(expanded === deptIndex ? false : deptIndex);
@@ -79,25 +79,20 @@ export default function IndeterminateCheckbox() {
     };
 
   return (
-    <div>
+    <Box sx={{ height: 400, width: "100%" }}>
       {data.map((dept, deptIndex) => (
         <Accordion
-          style={{
-            backgroundColor: "#444",
-            marginBottom: "8px",
-            color: "#fff",
-          }}
           key={dept.department}
-          expanded={expanded === deptIndex}
           onChange={handleExpandClick(deptIndex)}
+          expanded={expanded === deptIndex}
+          sx={{ backgroundColor: "#222", marginBottom: "8px" }}
         >
           <AccordionSummary
             expandIcon={
-              <div onClick={(e) => e.stopPropagation()}>
+              <div onClick={handleExpandClick(deptIndex)}>
                 <ExpandMoreIcon style={{ color: "#fff" }} />
               </div>
             }
-            onClick={(e) => e.stopPropagation()}
           >
             <Checkbox
               style={{ color: "#fff" }}
@@ -126,6 +121,6 @@ export default function IndeterminateCheckbox() {
           </AccordionDetails>
         </Accordion>
       ))}
-    </div>
+    </Box>
   );
 }

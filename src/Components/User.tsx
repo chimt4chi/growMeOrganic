@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { createTheme, ThemeProvider } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
 
-import "./User.css";
 import Departments from "./Departments";
 
 function User() {
@@ -20,21 +21,39 @@ function User() {
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 100 },
-    { field: "title", headerName: "Title", width: 300 },
-    { field: "body", headerName: "Body", width: 600 },
+    { field: "title", headerName: "Title", width: 550 },
+    { field: "body", headerName: "Body", width: 1500 },
   ];
 
+  const theme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
   return (
-    <div className="user-container">
-      <DataGrid
-        rows={posts}
-        columns={columns}
-        autoHeight={true}
-        pagination
-        style={{ color: "#fff" }}
-      />
-      <Departments />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="user-container">
+        <Box sx={{ height: 400, width: "100%" }}>
+          <DataGrid
+            style={{ color: "white" }}
+            rows={posts}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 5,
+                },
+              },
+            }}
+            pageSizeOptions={[5]}
+            checkboxSelection
+            disableRowSelectionOnClick
+          />
+          <Departments />
+        </Box>
+      </div>
+    </ThemeProvider>
   );
 }
 

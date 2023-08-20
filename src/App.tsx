@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
 import UserForm from "./Components/UserForm";
 import User from "./Components/User";
 import { useEffect } from "react";
