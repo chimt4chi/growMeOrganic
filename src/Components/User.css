@@ -1,0 +1,29 @@
+/* User.css */
+
+/* Style the outer container */
+.user-container {
+  height: 100%;
+  width: 100%;
+  background-color: #333; /* Dark background color */
+}
+
+/* Style the DataGrid */
+.data-grid {
+  color: white; /* Change text color to white */
+  border: none; /* Remove border */
+}
+
+/* Style the header */
+.data-grid .MuiDataGrid-colCellTitle {
+  background-color: #444; /* Darker background color for headers */
+}
+
+/* Style the odd rows */
+.data-grid .MuiDataGrid-row:nth-child(odd) {
+  background-color: #555; /* Darker background color for odd rows */
+}
+
+/* Style the even rows */
+.data-grid .MuiDataGrid-row:nth-child(even) {
+  background-color: #666; /* Background color for even rows */
+}
