@@ -114,6 +114,7 @@ export default function IndeterminateCheckbox() {
               {dept.sub_departments.map((subDept, subDeptIndex) => (
                 <div key={subDept}>
                   <Checkbox
+                    style={{ color: "#fff" }}
                     checked={subDeptChecked[deptIndex][subDeptIndex]}
                     onChange={handleSubDeptChange(deptIndex, subDeptIndex)}
                     color="primary"
