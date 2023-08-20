@@ -26,7 +26,13 @@ function User() {
 
   return (
     <div className="user-container">
-      <DataGrid rows={posts} columns={columns} autoHeight={true} pagination />
+      <DataGrid
+        rows={posts}
+        columns={columns}
+        autoHeight={true}
+        pagination
+        style={{ color: "#fff" }}
+      />
       <Departments />
     </div>
   );

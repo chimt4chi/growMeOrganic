@@ -82,7 +82,11 @@ export default function IndeterminateCheckbox() {
     <div>
       {data.map((dept, deptIndex) => (
         <Accordion
-          style={{ backgroundColor: "#444", marginBottom: "8px" }}
+          style={{
+            backgroundColor: "#444",
+            marginBottom: "8px",
+            color: "#fff",
+          }}
           key={dept.department}
           expanded={expanded === deptIndex}
           onChange={handleExpandClick(deptIndex)}
@@ -90,12 +94,13 @@ export default function IndeterminateCheckbox() {
           <AccordionSummary
             expandIcon={
               <div onClick={(e) => e.stopPropagation()}>
-                <ExpandMoreIcon />
+                <ExpandMoreIcon style={{ color: "#fff" }} />
               </div>
             }
             onClick={(e) => e.stopPropagation()}
           >
             <Checkbox
+              style={{ color: "#fff" }}
               checked={deptChecked[deptIndex]}
               onChange={handleDeptChange(deptIndex)}
               color="primary"
